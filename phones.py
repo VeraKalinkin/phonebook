@@ -45,11 +45,7 @@ def write_file(file_name, lst):
 def copy_number(file_name, row):
     res = read_file(file_name)
     res_copy = read_file("copy_" + file_name)
-    count = 0
-    for line in res:
-        count += 1
-        if count == row:
-            res_copy.append(line)
+    res_copy.append(res[row-1])
     with open("copy_" + file_name, "w", encoding="utf-8", newline='') as data:
         f_w = DictWriter(data, fieldnames=["Имя", "Фамилия", "Телефон"])
         f_w.writeheader()
